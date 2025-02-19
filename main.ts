@@ -22,13 +22,12 @@ input.onButtonPressed(Button.AB, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (time < 9) {
+    if (time >= 9) {
         basic.showNumber(time)
     } else {
+        time += 1
         basic.showNumber(time)
     }
-    time += 1
-    basic.showNumber(time)
 })
 let time = 0
 time = 0
