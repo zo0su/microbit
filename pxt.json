@@ -1,5 +1,5 @@
 {
-    "name": "온도계",
+    "name": "timer",
     "description": "",
     "dependencies": {
         "core": "*",

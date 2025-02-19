@@ -1,31 +1,37 @@
 input.onButtonPressed(Button.A, function () {
-    basic.clearScreen()
-    basic.showNumber(최저온도)
+    if (time == 0) {
+        basic.showNumber(time)
+    } else {
+        time += -1
+        basic.showNumber(time)
+    }
+})
+input.onGesture(Gesture.Shake, function () {
+    if (time == 0) {
+        basic.showIcon(IconNames.Happy)
+        basic.showNumber(time)
+    } else {
+        basic.showIcon(IconNames.Sad)
+        basic.showNumber(time)
+    }
 })
 input.onButtonPressed(Button.AB, function () {
-    basic.clearScreen()
-    basic.showNumber(현재온도)
+    while (true) {
+        basic.pause(1000)
+        time += -1
+    }
 })
 input.onButtonPressed(Button.B, function () {
-    basic.clearScreen()
-    basic.showNumber(최고온도)
+    if (time < 9) {
+        basic.showNumber(time)
+    } else {
+        basic.showNumber(time)
+    }
+    time += 1
+    basic.showNumber(time)
 })
-let 최고온도 = 0
-let 최저온도 = 0
-let 현재온도 = 0
-현재온도 = input.temperature()
-최저온도 = 현재온도
-최고온도 = 현재온도
+let time = 0
+time = 0
 basic.forever(function () {
-    현재온도 = input.temperature()
-    if (최저온도 > 현재온도) {
-        최저온도 = 현재온도
-    }
-    if (최고온도 < 현재온도) {
-        최고온도 = 현재온도
-    }
-    basic.showString(".")
-    basic.pause(500)
-    basic.clearScreen()
-    basic.pause(500)
+    basic.showNumber(time)
 })
